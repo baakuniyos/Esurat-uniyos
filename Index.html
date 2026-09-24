@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pengajuan Nomor Surat</title>
+</head>
+<body>
+  <h1>Data dari Google Apps Script</h1>
+  <div id="hasil">Memuat data...</div>
+
+  <script>
+    // Ganti dengan Web App URL dari Google Apps Script Anda
+    const url = "https://script.google.com/macros/s/AKfycbyNu9KbxgqGBsE7zlTB1OX8rtESiHjmirY6bguXjZS7qCmpB4_nD6F-GyTlwouXCm42aA/exec"; 
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("hasil").innerText = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("hasil").innerText = "Gagal mengambil data.";
+      });
+  </script>
+</body>
+</html>
